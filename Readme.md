@@ -11,7 +11,7 @@ Aqui fica o backend da aplicação, uma API feita em ASP.NET Web API.
 
 -   **Arquitetura:** A estruturação do projeto foi feita em Clean Architecture, pra separar bem as responsabilidades.
 -   **ORM:** Usei o Entity Framework pra fazer o mapeamento objeto-relacional.
--   **Banco de Dados:** O banco de dados é o PostgreSQL.
+-   **Banco de Dados:** O banco de dados é o SQL Server.
 
 ### PDVnet.GestaoProdutos.FrontEnd
 
@@ -32,12 +32,13 @@ Você vai precisar ajustar a string de conexão no `appsettings.json`/`appsettin
 -   **Arquivo:** `src/PDVnet.GestaoProdutos.API/appsettings.Development.json`
 -   **Propriedade:** `ConnectionStrings`
 
-Troque pelos dados do seu banco SQL. Exemplo:
+Troque pelos dados do seu banco de dados SQL Server. 
 
+Trusted Connection
 ```json
 {
   "ConnectionStrings": {
-    "ProdutosDb": "Host=localhost;Database=ProdutosDb;Username={SEU-USUARIO};Password={SUA-SENHA}"
+    "ProdutosDb": "Server=localhost;Database=ProdutosDb;Trusted_Connection=True;Encrypt=False;"
   },
   "Logging": {
     "LogLevel": {
@@ -47,6 +48,23 @@ Troque pelos dados do seu banco SQL. Exemplo:
   }
 }
 ```
+
+Standard Security
+```json
+{
+  "ConnectionStrings": {
+    "ProdutosDb": "Server=localhost;Database=ProdutosDb;User Id=seu_usuario_sql;Password=sua_senha_sql;Encrypt=False;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  }
+}
+```
+
+**Encrypt=False; e usado para evitar um erro de certificado em ambiente de desenvolvimento local
 
 ### 2. Migrations e criação do banco
 
@@ -83,9 +101,8 @@ Pra criar as tabelas e o banco de dados, siga esses passos:
 2. O `Preço` e a `Quantidade` não podem ser valores negativos.
 3. A data de cadastro deve ser gerada automaticamente no momento da criação do produto.
 
-#### postgresql, registros de produtos gravados diretamente no banco de dados
-![postgresql, registros gravados funcionando](Annotation-2025-10-20-174251.png)
-
+#### SQL Server, registros de produtos gravados diretamente no banco de dados
+![SQL Server, registros gravados funcionando](Annotation-2025-10-21-190132.png)
 
 #### A interface principal da aplicação de gestão de produtos
 ![aplicacao WPF](Annotation-2025-10-20-235300.png)
