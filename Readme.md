@@ -90,8 +90,8 @@ Pra criar as tabelas e o banco de dados, siga esses passos:
 #### A interface principal da aplicação de gestão de produtos
 ![aplicacao WPF](Annotation-2025-10-20-235300.png)
 
-**(1)** Adicionar Produto: Abre a janela para cadastrar um novo produto.
-**(2)** Editar Produto Selecionado: Habilitado apenas quando um produto é selecionado no grid **(5)**, permite editar o item.
-**(3)** Excluir Produto Selecionado: Também habilitado com a seleção de um produto, remove o item do banco.
-**(4)** Atualizar: Recarrega a lista de produtos, buscando os dados mais recentes da API.
-**(5)** DataGrid: Exibe a lista de todos os produtos. A seleção de um item nesta grade é o que ativa os botões de edição **(2)** e exclusão **(3)**.
+* **(1) Adicionar Produto:** Abre a janela para cadastrar um novo produto.
+* **(2) Editar Produto Selecionado:** Habilitado apenas quando um produto é selecionado no grid **(5)**, permite editar o item.
+* **(3) Excluir Produto Selecionado:** Também habilitado com a seleção de um produto, remove o item do banco.
+* **(4) Atualizar:** Recarrega a lista de produtos, buscando os dados mais recentes da API.
+* **(5) DataGrid:** Exibe a lista de todos os produtos. A seleção de um item nesta grade é o que ativa os botões de edição **(2)** e exclusão **(3)**.
