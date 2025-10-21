@@ -1,0 +1,81 @@
+# é possivel utilizar pela extensao VSCode -> REST Client, ou diratamente no VS2022
+
+@host = https://localhost
+@port = 7200
+@HostAddress = {{host}}:{{port}}
+# Verificar no launchSettings.json a porta do projeto API
+
+@createdProductId = 12
+
+###
+
+# Verifica se a lista de produtos e retornada
+GET {{HostAddress}}/api/produtos
+Accept: application/json
+
+###
+
+# Cria um produto e armazena seu ID para testes futuros
+POST {{HostAddress}}/api/produtos
+Content-Type: application/json
+
+{
+  "nome": "Smartphone Top",
+  "descricao": "Smartphone de ultima geração com câmera avancada",
+  "preco": 4999.99,
+  "quantidade": 100
+}
+
+###
+
+# testar validacao, cria um produto e armazena seu ID para testes futuros
+POST {{HostAddress}}/api/produtos
+Content-Type: application/json
+
+{
+  "nome": "",
+  "descricao": "Smartphone de ultima geração com câmera avancada",
+  "preco": -1,
+  "quantidade": -1
+}
+
+###
+
+# Usa o ID do produto criado ou que existe
+GET {{HostAddress}}/api/produtos/{{createdProductId}}
+Accept: application/json
+
+###
+
+# Buscar por produto que nao existe
+GET {{HostAddress}}/api/produtos/999999999
+Accept: application/json
+
+###
+
+# Altera alguns campos do produto usando o ID armazenado
+PUT {{HostAddress}}/api/produtos/{{createdProductId}}
+Content-Type: application/json
+
+{
+  "nome": "Smartphone Top - Versão Plus",
+  "preco": 5499.99,
+  "quantidade": 95
+}
+
+###
+
+# Testar validacao, altera alguns campos do produto usando o ID armazenado
+PUT {{HostAddress}}/api/produtos/{{createdProductId}}
+Content-Type: application/json
+
+{
+  "nome": "",
+  "preco": -5,
+  "quantidade": -5
+}
+
+###
+
+# Remove o produto usando o ID armazenado
+DELETE {{HostAddress}}/api/produtos/{{createdProductId}}

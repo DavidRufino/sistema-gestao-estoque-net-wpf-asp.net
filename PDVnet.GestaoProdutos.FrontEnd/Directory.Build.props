@@ -1,0 +1,9 @@
+<Project>
+   <PropertyGroup>
+      <!-- Define onde os arquivos compilados finais (bin) serão armazenados -->
+      <BaseOutputPath>C:\VS-Output\$(Configuration)\$(MSBuildProjectName)\</BaseOutputPath>
+
+      <!-- Define onde os arquivos intermediários (obj) serão armazenados -->
+      <BaseIntermediateOutputPath>C:\VS-Output\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+   </PropertyGroup>
+</Project>

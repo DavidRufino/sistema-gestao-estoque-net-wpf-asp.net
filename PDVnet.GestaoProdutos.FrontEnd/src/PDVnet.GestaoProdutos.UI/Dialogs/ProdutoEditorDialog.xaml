@@ -1,0 +1,45 @@
+﻿<Window x:Class="PDVnet.GestaoProdutos.UI.Dialogs.ProdutoEditorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDVnet.GestaoProdutos.UI.Dialogs"
+        xmlns:vm="clr-namespace:PDVnet.GestaoProdutos.UI.ViewModels"
+        mc:Ignorable="d">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Nome:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Nome, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Descrição:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Descricao, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Preço:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Preco, UpdateSourceTrigger=LostFocus, ConverterCulture=pt-BR, StringFormat={}{0:N2}}" Margin="0,5"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Quantidade:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Quantidade, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"/>
+
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Salvar" Command="{Binding SaveCommand}" Margin="0,0,10,0" IsDefault="True" 
+                    Style="{StaticResource PrimaryButton}" />
+            
+            <Button Content="Cancelar" IsCancel="True" 
+                    Style="{StaticResource PrimaryButton}" />
+        </StackPanel>
+    </Grid>
+
+</Window>
